@@ -2,8 +2,7 @@ package com.example.cinetrailer.service;
 
 import java.nio.file.Path;
 
-import javax.annotation.Resource;
-
+import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
 
