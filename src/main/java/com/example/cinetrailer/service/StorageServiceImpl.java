@@ -7,6 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Optional;
+import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 
@@ -50,9 +52,11 @@ public class StorageServiceImpl implements StorageService
             throw new StorageException("Cannot store an empty file");
         }
 
-        //
-        String filename = file.getOriginalFilename();
-        
+        // Generate a filename
+        // String filename = file.getOriginalFilename();
+        final String ext = getFileExtension(file.getOriginalFilename()).get(); // Get image extension
+        final String filename = UUID.randomUUID().toString() + "." + ext; // Create a unique string + extension
+
         try 
         {
             InputStream inputStream = file.getInputStream();
@@ -107,5 +111,14 @@ public class StorageServiceImpl implements StorageService
         {
             System.out.println(e);
         }
+    }
+
+
+    // Utils
+    public Optional<String> getFileExtension(String filename) 
+    {
+        return Optional.ofNullable(filename)
+          .filter(f -> f.contains("."))
+          .map(f -> f.substring(filename.lastIndexOf(".") + 1));
     }
 }

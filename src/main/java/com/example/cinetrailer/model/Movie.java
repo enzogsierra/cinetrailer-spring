@@ -13,6 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -34,7 +35,8 @@ public class Movie
     @NotBlank(message = "Movie synopsis cannot be blank")
     private String synopsis;
 
-    @NotNull(message = "You must specify movie's release date")
+    @NotNull(message = "You must specify a release date")
+    @Future(message = "Release date must be in a future date")
     private LocalDate releaseDate;
 
     @NotBlank(message = "You must specify a Youtube trailer")
