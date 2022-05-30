@@ -21,7 +21,7 @@
 
             <a th:href="@{/admin/addMovie}" class="mt-2 btn btn-primary">Add movie</a>
         
-            <table class="my-2 table border rounded table-hover">
+            <table class="my-2 table border rounded table-hover" id="movie-list">
                 <thead>
                     <tr>
                         <th></th>
@@ -32,8 +32,8 @@
 
                 <tbody>
                     <tr th:each="movie: ${movies}">
-                        <td>
-                            <img th:src="@{/assets/{filename} (filename = ${movie.coverUrl})}" th:alt="${movie.title} + '\'s cover'" height="50"> 
+                        <td class="text-center">
+                            <img th:src="@{/assets/{filename} (filename = ${movie.coverUrl})}" th:alt="${movie.title} + '\'s cover'" class="movie-thumb img-thumbnail" id="movie-thumb"> 
                         </td>
                         <td>
                             <h3 th:text="${movie.title}"></h3>

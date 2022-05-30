@@ -1,0 +1,9 @@
+.movie-thumb
+{
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+.movie-thumb:hover
+{
+    transform: scale(1.05);
+}
