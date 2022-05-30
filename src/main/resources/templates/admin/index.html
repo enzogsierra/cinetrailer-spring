@@ -27,6 +27,7 @@
                         <th></th>
                         <th>Movie</th>
                         <th>Release date</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
 
@@ -35,11 +36,22 @@
                         <td class="text-center">
                             <img th:src="@{/assets/{filename} (filename = ${movie.coverUrl})}" th:alt="${movie.title} + '\'s cover'" class="movie-thumb img-thumbnail" id="movie-thumb"> 
                         </td>
+
                         <td>
                             <h3 th:text="${movie.title}"></h3>
                             <p th:text="${movie.synopsis}"></p>
+                            <div class="d-flex gap-1">
+                                <h6 th:each="genre: ${movie.genres}" th:text="${genre.title}" class="badge bg-secondary"></h6>
+                            </div>
                         </td>
-                        <td th:text="${#temporals.format(movie.releaseDate, 'dd/MM/yyyy')}"></td>
+
+                        <td th:text="${#temporals.format(movie.releaseDate, 'dd/MM/yyyy')}">
+
+                        </td>
+
+                        <td>
+                            <a th:href="@{/admin/editMovie/{id} (id = ${movie.id})}" class="btn btn-warning">Edit</a>
+                        </td>
                     </tr>
                 </tbody>
             </table>

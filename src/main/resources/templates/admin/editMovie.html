@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    xmlns="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}"
+    >
+    <head>
+        <title>Cinetrailer</title>
+    </head>
+    
+    <!-- Content -->
+    <div layout:fragment="content">
+        <main class="container my-5">
+            <h2>Edit movie</h2>
+
+            <form th:action="@{/admin/editMovie}" th:object="${movie}" method="POST" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{id}">
+                
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" id="title" type="text" th:field="*{title}" autocomplete="off">
+                    <div th:errors="*{title}" class="form-text text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="synopsis">Synopsis</label>
+                    <textarea class="form-control" id="synopsis" rows="4" th:field="*{synopsis}"></textarea>
+                    <div th:errors="*{synopsis}" class="form-text text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="releaseDate">Release date</label>
+                    <input class="form-control" id="releaseDate" type="date" th:field="*{releaseDate}">
+                    <div th:errors="*{releaseDate}" class="form-text text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="youtubeTrailerUrl">Youtube trailer URL</label>
+                    <input class="form-control" id="youtubeTrailerUrl" type="text" placeholder="https://www.youtube.com/watch?v=" th:field="*{youtubeTrailerUrl}" autocomplete="off">
+                    <div th:errors="*{youtubeTrailerUrl}" class="form-text text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Genres</label>
+
+                    <div th:each="genre: ${genres}" class="form-check">
+                        <input class="form-check-input" th:id="'genre' + ${genre.id}" type="checkbox" th:field="*{genres}" th:value="${genre.id}">
+                        <label class="form-check-label" th:for="'genre' + ${genre.id}" th:text="${genre.title}"></label>
+                    </div>
+                    <div th:errors="*{genres}" class="form-text text-danger"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="cover">Cover <span class="text-muted">(leave it blank or upload a new image to update the current one)</span></label>
+                    <input class="form-control" id="cover" type="file" th:field="*{cover}">
+                </div>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a th:href="@{/admin/}" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </main>
+    </div>
+</html>

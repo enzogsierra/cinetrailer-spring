@@ -1,6 +1,7 @@
 package com.example.cinetrailer.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -39,7 +41,7 @@ public class AdminController
     private StorageServiceImpl storageService;
 
 
-    @GetMapping("/")
+    @GetMapping(value = {"", "/"})
     public String index(@PageableDefault(sort = "title", size = 5) Pageable pageable, Model model)
     {
         Page<Movie> movies = movieRepository.findAll(pageable);
@@ -47,6 +49,8 @@ public class AdminController
         return "admin/index";
     }
 
+
+    // Add movie
     @GetMapping("/addMovie")
     public String addMovie(Model model)
     {
@@ -78,6 +82,51 @@ public class AdminController
         movieRepository.save(movie);
         
         redirect.addFlashAttribute("msg", "Movie created successfuly");
+        return "redirect:/admin/";
+    }
+
+    // Edit movie
+    @GetMapping("/editMovie/{id}")
+    public String editMovie(@PathVariable Integer id, Model model)
+    {
+        Optional<Movie> tmp = movieRepository.findById(id);
+        if(!tmp.isPresent()) return "redirect:/admin/";
+
+        Movie movie = tmp.get();
+        List<Genre> genres = genreRepository.findAll(Sort.by("title"));
+
+        model.addAttribute("movie", movie);
+        model.addAttribute("genres", genres);
+        return "admin/editMovie";
+    }
+
+    @PostMapping("/editMovie")
+    public String editMovie_POST(@Valid Movie movie, BindingResult result, Model model)
+    {
+        // Validate form
+        if(result.hasErrors())
+        {
+            List<Genre> genres = genreRepository.findAll(Sort.by("title"));
+
+            model.addAttribute("movie", movie);
+            model.addAttribute("genres", genres);
+            return "admin/editMovie";
+        }
+
+        // Success
+        // Get movie data
+        Movie tmp = movieRepository.findById(movie.getId()).get(); // Get movie's db-stored data
+        String filename = tmp.getCoverUrl();
+
+        if(!movie.getCover().isEmpty()) // Update cover file
+        {
+            storageService.deleteFile(filename); // Delete old cover image file
+            filename = storageService.storeFile(movie.getCover(), Directory.Covers); // Create a new cover image file
+        }
+
+        movie.setCoverUrl(filename); // Set cover filename
+        movieRepository.save(movie); // Update movie data
+
         return "redirect:/admin/";
     }
 }

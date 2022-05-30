@@ -106,10 +106,9 @@ public class StorageServiceImpl implements StorageService
     @Override
     public void deleteFile(String filename) 
     {
-        Path file = loadFile(filename);
-
         try 
         {
+            Path file = loadFile(filename);
             FileSystemUtils.deleteRecursively(file);    
         } 
         catch(IOException e) 
