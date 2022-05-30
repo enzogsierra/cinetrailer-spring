@@ -137,10 +137,10 @@ public class AdminController
     public String deleteMovie(@PathVariable Integer id, RedirectAttributes redirect)
     {
         Optional<Movie> opt = movieRepository.findById(id);
-        if(!opt.isPresent()) return "redirect:/admin/";
+        if(!opt.isPresent()) return "redirect:/admin/"; // If movie doesn't exists, redirect to /admin
 
         Movie movie = opt.get();
-        movieRepository.delete(movie);
+        movieRepository.delete(movie); // Delete movie
 
         redirect.addFlashAttribute("msg", "Movie deleted successfuly");
         return "redirect:/admin/";
