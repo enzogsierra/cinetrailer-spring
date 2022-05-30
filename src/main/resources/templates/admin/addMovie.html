@@ -62,12 +62,12 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="synopsis">Synopsis</label>
-                    <input class="form-control" id="synopsis" type="text" th:field="*{synopsis}">
+                    <textarea class="form-control" id="synopsis" rows="4" th:field="*{synopsis}"></textarea>
                     <div th:errors="*{synopsis}" class="form-text text-danger"></div>
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="releaseDate">releaseDate</label>
+                    <label class="form-label" for="releaseDate">Release date</label>
                     <input class="form-control" id="releaseDate" type="date" th:field="*{releaseDate}">
                     <div th:errors="*{releaseDate}" class="form-text text-danger"></div>
                 </div>

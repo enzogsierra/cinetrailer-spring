@@ -50,12 +50,18 @@
         </nav>
 
         <!-- Content -->
-        <main class="container my-5">
+        <main class="container my-3">
+            <div th:if="${msg}" th:text="${msg}" class="alert alert-success text-center alert-dismissible fade show" role="alert">
+                Movie created successfuly
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+
             <h2>Movies</h2>
 
             <a th:href="@{/admin/addMovie}" class="mt-2 btn btn-primary">Add movie</a>
         
-            <table class="my-2 table border table-hover">
+            <table class="my-2 table border rounded table-hover">
                 <thead>
                     <tr>
                         <th>Movie</th>

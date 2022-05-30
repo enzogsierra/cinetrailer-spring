@@ -22,6 +22,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -57,7 +58,7 @@ public class AdminController
     }
 
     @PostMapping("/addMovie")
-    public String addMovie_POST(@Valid Movie movie, BindingResult result, Model model)
+    public String addMovie_POST(Movie movie, BindingResult result, Model model, RedirectAttributes redirect)
     {
         // Validate form
         if(result.hasErrors() || movie.getCover().isEmpty())
@@ -74,8 +75,9 @@ public class AdminController
         // Success
         String filename = storageService.storeFile(movie.getCover(), Directory.Covers);
         movie.setCoverUrl(filename);
-
         movieRepository.save(movie);
-        return "redirect:/admin/?msg=1";
+        
+        redirect.addFlashAttribute("msg", "Movie created successfuly");
+        return "redirect:/admin/";
     }
 }
