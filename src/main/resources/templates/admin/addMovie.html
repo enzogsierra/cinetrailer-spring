@@ -1,62 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.thymeleaf.org">
+<html 
+    lang="en"
+    xmlns="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}"
+    >
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
         <title>Cinetrailer</title>
-        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
     </head>
     
-    <body>
-        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
-            <div class="container">
-                <h1 class="mb-0">
-                    <a th:href="@{/}" class="d-flex align-items-center text-decoration-none">
-                        <img 
-                            th:src="@{/img/favicon.png}" 
-                            alt="Logo"
-                            class="d-flex mx-auto"
-                            height="40"
-                        >
-                        <span class="nav-link active text-responsive text-light">Cinetrailer</span>
-                    </a>
-                </h1>
-
-                <button 
-                    type="button"
-                    class="navbar-toggler"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarTogglerBtn"
-                    aria-controls="navbarTogglerBtn"
-                    aria-expanded="false"
-                    aria-label="Toggle">
-
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div id="navbarTogglerBtn" class="collapse navbar-collapse justify-content-md-end">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a th:href="@{/}" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a th:href="@{/movies/}" class="nav-link">Movies</a></li>
-                        <li class="nav-item"><a th:href="@{/admin/}" class="nav-link">Admin Panel</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Content -->
+    <!-- Content -->
+    <div layout:fragment="content">
         <main class="container my-5">
             <h2>Add movie</h2>
 
             <form th:action="@{/admin/addMovie}" th:object="${movie}" method="POST" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
-                    <input class="form-control" id="title" type="text" th:field="*{title}">
+                    <input class="form-control" id="title" type="text" th:field="*{title}" autocomplete="off">
                     <div th:errors="*{title}" class="form-text text-danger"></div>
                 </div>
 
@@ -74,7 +35,7 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="youtubeTrailerUrl">Youtube trailer URL</label>
-                    <input class="form-control" id="youtubeTrailerUrl" type="text" placeholder="https://www.youtube.com/watch?v=" th:field="*{youtubeTrailerUrl}">
+                    <input class="form-control" id="youtubeTrailerUrl" type="text" placeholder="https://www.youtube.com/watch?v=" th:field="*{youtubeTrailerUrl}" autocomplete="off">
                     <div th:errors="*{youtubeTrailerUrl}" class="form-text text-danger"></div>
                 </div>
 
@@ -107,9 +68,5 @@
                 </div>
             </form>
         </main>
-
-        <!-- Scripts -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-        <script th:src="@{/js/app.js}" defer></script>
-    </body>
+    </div>
 </html>

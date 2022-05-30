@@ -3,6 +3,7 @@ package com.example.cinetrailer.model;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
@@ -30,17 +32,23 @@ public class Movie
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;    
 
+    @Column(length = 128)
     @NotBlank(message = "Movie title cannot be blank")
+    @Size(max = 128, message = "Movie title cannot be longer than 128 characters")
     private String title;
 
+    @Column(length = 2048)
     @NotBlank(message = "Movie synopsis cannot be blank")
+    @Size(max = 2048, message = "Movie synopsis cannot be longer than 2048 characters")
     private String synopsis;
 
     @NotNull(message = "You must specify a release date")
     @DateTimeFormat(iso = ISO.DATE)
     private LocalDate releaseDate;
 
+    @Column(length = 128)
     @NotBlank(message = "You must specify a Youtube trailer")
+    @Size(max = 128, message = "Youtube URL cannot be longer than 128 characters")
     private String youtubeTrailerUrl;
 
     @NotEmpty(message = "Select at least 1 genre")

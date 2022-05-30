@@ -58,7 +58,7 @@ public class AdminController
     }
 
     @PostMapping("/addMovie")
-    public String addMovie_POST(Movie movie, BindingResult result, Model model, RedirectAttributes redirect)
+    public String addMovie_POST(@Valid Movie movie, BindingResult result, Model model, RedirectAttributes redirect)
     {
         // Validate form
         if(result.hasErrors() || movie.getCover().isEmpty())
