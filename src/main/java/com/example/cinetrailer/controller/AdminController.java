@@ -101,7 +101,7 @@ public class AdminController
     }
 
     @PostMapping("/editMovie")
-    public String editMovie_POST(@Valid Movie movie, BindingResult result, Model model)
+    public String editMovie_POST(@Valid Movie movie, BindingResult result, Model model, RedirectAttributes redirect)
     {
         // Validate form
         if(result.hasErrors())
@@ -121,12 +121,28 @@ public class AdminController
         if(!movie.getCover().isEmpty()) // Update cover file
         {
             storageService.deleteFile(filename); // Delete old cover image file
-            filename = storageService.storeFile(movie.getCover(), Directory.Covers); // Create a new cover image file
+            filename = storageService.storeFile(movie.getCover(), Directory.Covers); // Create a new cover image file and store the filename generated
         }
 
         movie.setCoverUrl(filename); // Set cover filename
         movieRepository.save(movie); // Update movie data
 
+        redirect.addFlashAttribute("msg", "Movie edited successfuly");
+        return "redirect:/admin/";
+    }
+
+
+    //
+    @GetMapping("/deleteMovie/{id}")
+    public String deleteMovie(@PathVariable Integer id, RedirectAttributes redirect)
+    {
+        Optional<Movie> opt = movieRepository.findById(id);
+        if(!opt.isPresent()) return "redirect:/admin/";
+
+        Movie movie = opt.get();
+        movieRepository.delete(movie);
+
+        redirect.addFlashAttribute("msg", "Movie deleted successfuly");
         return "redirect:/admin/";
     }
 }

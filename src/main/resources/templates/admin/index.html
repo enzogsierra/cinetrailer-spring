@@ -11,11 +11,10 @@
     
     <div layout:fragment="content">
         <main class="container">
-            <div th:if="${msg}" th:text="${msg}" class="alert alert-success text-center alert-dismissible fade show" role="alert">
-                Movie created successfuly
+            <div th:if="${msg}" class="alert alert-success alert-dismissible text-center fade show" role="alert">
+                <p th:text="${msg}" class="m-0"></p>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-
 
             <h2>Movies</h2>
 
@@ -49,8 +48,9 @@
 
                         </td>
 
-                        <td>
+                        <td class="">
                             <a th:href="@{/admin/editMovie/{id} (id = ${movie.id})}" class="btn btn-warning">Edit</a>
+                            <a th:href="@{/admin/deleteMovie/{id} (id = ${movie.id})}" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 </tbody>
