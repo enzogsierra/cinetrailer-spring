@@ -2,6 +2,7 @@ package com.example.cinetrailer.service;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -29,14 +30,19 @@ public class StorageServiceImpl implements StorageService
     @Value("${storage.location}")
     private String storageLocation;
 
-
-    @PostConstruct // This method will be called when every time this class is initialized
+    @PostConstruct // This method will be called every time the spring application starts
     @Override
-    public void init() 
+    public void init() throws ClassNotFoundException, IllegalArgumentException, IllegalAccessException 
     {
         try 
         {
-            Files.createDirectories(Paths.get(storageLocation));
+            Field[] fields = Directory.class.getDeclaredFields(); // Get all "Directory" attributes
+
+            for(Field field: fields)
+            {
+                final String directory = (String) field.get(new Directory()); // Get attribute string value
+                Files.createDirectories(Paths.get(storageLocation + "/" + directory)); // Create directory
+            }
         } 
         catch(IOException e) 
         {
@@ -45,7 +51,7 @@ public class StorageServiceImpl implements StorageService
     }
 
     @Override
-    public String storeFile(MultipartFile file) 
+    public String storeFile(MultipartFile file, String folder) 
     {
         if(file.isEmpty())
         {
@@ -53,9 +59,8 @@ public class StorageServiceImpl implements StorageService
         }
 
         // Generate a filename
-        // String filename = file.getOriginalFilename();
         final String ext = getFileExtension(file.getOriginalFilename()).get(); // Get image extension
-        final String filename = UUID.randomUUID().toString() + "." + ext; // Create a unique string + extension
+        final String filename = folder + UUID.randomUUID().toString() + "." + ext; // Create a unique string + extension
 
         try 
         {

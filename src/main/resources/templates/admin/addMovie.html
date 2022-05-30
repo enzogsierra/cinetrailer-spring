@@ -98,8 +98,8 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="cover">Cover</label>
-                    <input class="form-control" id="cover" type="file" th:field="*{cover}" name="cover">
-                    <div th:errors="*{cover}" class="form-text text-danger">You must add a cover image</div>
+                    <input class="form-control" id="cover" type="file" th:field="*{cover}">
+                    <div th:if="${coverEmpty}" class="form-text text-danger">You must add a cover image</div>
                 </div>
 
                 <div>

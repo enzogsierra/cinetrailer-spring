@@ -1,7 +1,6 @@
 package com.example.cinetrailer.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -9,6 +8,7 @@ import com.example.cinetrailer.model.Genre;
 import com.example.cinetrailer.model.Movie;
 import com.example.cinetrailer.repository.GenreRepository;
 import com.example.cinetrailer.repository.MovieRepository;
+import com.example.cinetrailer.service.Directory;
 import com.example.cinetrailer.service.StorageServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -60,7 +59,23 @@ public class AdminController
     @PostMapping("/addMovie")
     public String addMovie_POST(@Valid Movie movie, BindingResult result, Model model)
     {
-        
-        return "redirect:/admin/";
+        // Validate form
+        if(result.hasErrors() || movie.getCover().isEmpty())
+        {
+            if(movie.getCover().isEmpty()) model.addAttribute("coverEmpty", 1);
+
+            List<Genre> genres = genreRepository.findAll(Sort.by("title"));
+
+            model.addAttribute("movie", movie);
+            model.addAttribute("genres", genres);
+            return "admin/addMovie";
+        }
+
+        // Success
+        String filename = storageService.storeFile(movie.getCover(), Directory.Covers);
+        movie.setCoverUrl(filename);
+
+        movieRepository.save(movie);
+        return "redirect:/admin/?msg=1";
     }
 }

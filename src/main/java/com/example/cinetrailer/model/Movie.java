@@ -13,11 +13,12 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.web.multipart.MultipartFile;
 
 
@@ -36,7 +37,7 @@ public class Movie
     private String synopsis;
 
     @NotNull(message = "You must specify a release date")
-    @Future(message = "Release date must be in a future date")
+    @DateTimeFormat(iso = ISO.DATE)
     private LocalDate releaseDate;
 
     @NotBlank(message = "You must specify a Youtube trailer")
@@ -53,12 +54,13 @@ public class Movie
     
     @Transient
     private MultipartFile cover;
+    private String coverUrl;
 
     
     public Movie() {
     }
 
-    public Movie(Integer id, String title, String synopsis, LocalDate releaseDate, String youtubeTrailerUrl, List<Genre> genres, MultipartFile cover) 
+    public Movie(Integer id, String title, String synopsis, LocalDate releaseDate, String youtubeTrailerUrl, List<Genre> genres, MultipartFile cover, String coverUrl) 
     {
         this.id = id;
         this.title = title;
@@ -67,6 +69,7 @@ public class Movie
         this.youtubeTrailerUrl = youtubeTrailerUrl;
         this.genres = genres;
         this.cover = cover;
+        this.coverUrl = coverUrl;
     }
 
 
@@ -126,10 +129,19 @@ public class Movie
         this.cover = cover;
     }
 
+    public String getCoverUrl() {
+        return this.coverUrl;
+    }
+
+    public void setCoverUrl(String coverUrl) {
+        this.coverUrl = coverUrl;
+    }
+
 
     @Override
     public String toString() {
-        return "Movie [genres=" + genres + ", id=" + id + ", releaseDate=" + releaseDate + ", synopsis=" + synopsis
-                + ", title=" + title + ", youtubeTrailerUrl=" + youtubeTrailerUrl + "]";
-    }
+        return "Movie [coverUrl=" + coverUrl + ", genres=" + genres + ", id=" + id + ", releaseDate="
+                + releaseDate + ", synopsis=" + synopsis + ", title=" + title + ", youtubeTrailerUrl="
+                + youtubeTrailerUrl + "]";
+    }    
 }
