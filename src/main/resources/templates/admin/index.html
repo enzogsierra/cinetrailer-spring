@@ -25,7 +25,7 @@
                     <tr>
                         <th></th>
                         <th>Movie</th>
-                        <th>Release date</th>
+                        <th class="text-nowrap">Release date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -37,8 +37,10 @@
                         </td>
 
                         <td>
-                            <h3 th:text="${movie.title}"></h3>
-                            <p th:text="${movie.synopsis}"></p>
+                            <h3>
+                                <a th:href="@{/movie/{id} (id = ${movie.id})}" th:text="${movie.title}" class="text-decoration-none text-dark"></a>
+                            </h3>
+                            <p th:text="${#strings.abbreviate(movie.synopsis, 256)}"></p>
                             <div class="d-flex gap-1">
                                 <h6 th:each="genre: ${movie.genres}" th:text="${genre.title}" class="badge bg-secondary"></h6>
                             </div>
@@ -48,9 +50,11 @@
 
                         </td>
 
-                        <td class="">
-                            <a th:href="@{/admin/editMovie/{id} (id = ${movie.id})}" class="btn btn-warning">Edit</a>
-                            <a th:href="@{/admin/deleteMovie/{id} (id = ${movie.id})}" class="btn btn-danger" id="btn-delete-movie">Delete</a>
+                        <td>
+                            <div class="d-flex gap-1">
+                                    <a th:href="@{/admin/editMovie/{id} (id = ${movie.id})}" class="btn btn-warning">Edit</a>
+                                    <a th:href="@{/admin/deleteMovie/{id} (id = ${movie.id})}" class="btn btn-danger" id="btn-delete-movie">Delete</a>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
