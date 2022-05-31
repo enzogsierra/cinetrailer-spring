@@ -2,9 +2,7 @@ package com.example.cinetrailer.controller;
 
 import java.util.List;
 
-import com.example.cinetrailer.model.Genre;
 import com.example.cinetrailer.model.Movie;
-import com.example.cinetrailer.repository.GenreRepository;
 import com.example.cinetrailer.repository.MovieRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +23,6 @@ public class PublicController
     @Autowired
     private MovieRepository movieRepository;
 
-    @Autowired
-    private GenreRepository genreRepository;
-
 
     @GetMapping(value = {"", "/"})
     public String index(Model model)
@@ -35,7 +30,7 @@ public class PublicController
         List<Movie> movies = movieRepository.findAll(PageRequest.of(0, 4, Sort.by("releaseDate").descending())).toList();
 
         model.addAttribute("movies", movies);
-        return "index";
+        return "public/index";
     }
 
     @GetMapping("/movies")
@@ -44,7 +39,7 @@ public class PublicController
         Page<Movie> movies = movieRepository.findAll(pageable);
 
         model.addAttribute("movies", movies);
-        return "";
+        return "public/movies";
     }
 
     @GetMapping("/movie/{id}")
@@ -53,6 +48,6 @@ public class PublicController
         Movie movie = movieRepository.findById(id).get();
 
         model.addAttribute("movie", movie);
-        return "movie";
+        return "public/movie";
     }
 }

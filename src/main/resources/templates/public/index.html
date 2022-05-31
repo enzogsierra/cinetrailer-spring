@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html 
+    lang="en" 
+    xmlns="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout.html}"
+    >
+    <head>
+        <title>Cinetrailer</title>
+    </head>
+    
+    <!-- Content -->
+    <div layout:fragment="content">
+        <main class="container bg-light p-5 rounded border">
+            <h2 class="display-2 text-success">Welcome to Cinetrailer</h2>
+
+            <p class="col-md-8 fs-4">Enjoy your favorite trailers at no cost</p>
+        </main>
+
+        <section class="container mt-5">
+            <h4>Latest releases</h4>
+
+            <div class="row">
+                <div th:each="movie: ${movies}" class="col-md-3 my-5">
+                    <a th:href="@{/movie/{id} (id = ${movie.id})}" class="card shadow-lg text-decoration-none">
+                        <img th:src="@{/assets/{filename} (filename = ${movie.coverUrl})}" th:alt="${movie.title} + '\'s cover'" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h2 th:text="${movie.title}" class="card-title"></h2>
+                            <p th:text="${#temporals.format(movie.releaseDate, 'dd/MM/yyyy')}" class="text-muted small"></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</html>
