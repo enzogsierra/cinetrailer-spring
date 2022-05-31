@@ -17,7 +17,7 @@
     margin: auto;
     z-index: 1;
     position: relative;
-    padding-top: 25px;
+    padding-top: 0px;
     padding-bottom: 56.25%;
     display: block;
     overflow: hidden;
@@ -31,4 +31,15 @@
     height: 100%;
     z-index: 5;
     position: absolute;
+}
+
+/* Swal style handling */
+body.trailer-swal .swal2-popup
+{
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 78vw !important;
+    max-height: 95vh !important;
+    min-width: 430px;
 }

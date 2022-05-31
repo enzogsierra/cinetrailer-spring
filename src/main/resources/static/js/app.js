@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function()
 {
     movieListHandler();
     navLinksHandler();
+    trailerButtonHandler();
 });
 
 
@@ -69,5 +70,41 @@ function movieListHandler()
                 confirmButtonText: 'Close'
             });
         }
+    });
+}
+
+
+function trailerButtonHandler()
+{
+    const btn = document.querySelector("button#btn-watchTrailer");
+    if(!btn) return;
+
+    // For Swal style handling purpose
+    const body = document.querySelector("body");
+    body.classList.add("trailer-swal");
+
+    btn.addEventListener("click", function()
+    {
+        
+        const title = btn.getAttribute("trailer-title");
+        const youtubeUrl = btn.getAttribute("trailer-youtubeUrl");
+
+        Swal.fire(
+        {
+            title: title,
+            html:
+            `<div class="embed-youtube-trailer">
+                <iframe
+                    src="${youtubeUrl}"
+                    title="${title}"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    >
+                </iframe>
+            </div>`,
+            showCloseButton: true,
+            showConfirmButton: false
+        });
     });
 }
