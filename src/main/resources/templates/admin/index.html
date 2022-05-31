@@ -55,6 +55,17 @@
                     </tr>
                 </tbody>
             </table>
+
+            <div class="row mt-5" th:with="page = ${movies}">
+                <div class="col-sm-6">
+                    <div sd:pagination-sumary></div>
+                </div>
+                <div class="col-sm-6">
+                    <nav>
+                        <ul class="pagination" sd:pagination="full"></ul>
+                    </nav>
+                </div>
+            </div>
         </main>
     </div>
 </html>

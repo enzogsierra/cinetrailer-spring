@@ -1,6 +1,7 @@
 .movie-thumb
 {
     min-width: 64px;
+    max-width: 96px;
     cursor: pointer;
     transition: transform .3s ease;
 }

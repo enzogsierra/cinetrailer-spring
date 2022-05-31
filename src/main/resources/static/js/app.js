@@ -27,9 +27,6 @@ function movieListHandler()
         const tag = e.target.tagName || "NONE";
         const id = e.target.id || "NONE";
 
-        console.log(tag);
-        console.log(id);
-
         // Delete movie button
         if(tag === "A" && id === "btn-delete-movie")
         {
