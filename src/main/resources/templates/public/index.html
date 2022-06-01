@@ -18,16 +18,23 @@
         </main>
 
         <section class="container mt-5">
-            <h4>Latest releases</h4>
+            <h2 class="mb-0">Latest releases</h2>
 
             <div class="row">
-                <div th:each="movie: ${movies}" class="movie-card col-md-3 my-5">
+                <div th:each="movie: ${movies}" class="movie-card col-md-3 my-4">
                     <a th:href="@{/movie/{id} (id = ${movie.id})}" class="card shadow-lg text-decoration-none">
                         <img th:src="@{/assets/{filename} (filename = ${movie.coverUrl})}" th:alt="${movie.title} + '\'s cover'" class="card-img-top">
                         
                         <div class="card-body">
-                            <h2 th:text="${movie.title}" class="card-title"></h2>
-                            <p th:text="${#temporals.format(movie.releaseDate, 'dd/MM/yyyy')}" class="text-muted small"></p>
+                            <h5 th:text="${movie.title}" class="text-dark text-center"></h5>
+
+                            <div class="movie-info">
+                                <p th:text="${#temporals.format(movie.releaseDate, 'yyyy')}" class="mb-1 text-center text-muted"></p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 th:each="genre: ${movie.genres}" th:text="${genre.title}" class="m-0 badge bg-light rounded border text-dark"></h6>
+                                </div>
+                            </div>
                         </div>
                     </a>
                 </div>

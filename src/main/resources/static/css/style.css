@@ -7,6 +7,16 @@
     transform: scale(1.05);
 }
 
+.movie-card .movie-info
+{
+    display: none;
+    transition: display .3s ease;
+}
+.movie-card:hover .movie-info
+{
+    display: block;
+}
+
 
 .movie-thumb
 {

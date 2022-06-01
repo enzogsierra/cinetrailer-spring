@@ -31,7 +31,7 @@ public class PublicController
     @GetMapping(value = {"", "/"})
     public String index(Model model)
     {
-        List<Movie> movies = movieRepository.findAll(PageRequest.of(0, 4, Sort.by("releaseDate").descending())).toList();
+        List<Movie> movies = movieRepository.findAll(PageRequest.of(0, 8, Sort.by("releaseDate").descending())).toList();
 
         model.addAttribute("movies", movies);
         return "public/index";
