@@ -45,6 +45,7 @@ public class AdminController
     public String index(@PageableDefault(sort = "title", size = 5) Pageable pageable, Model model)
     {
         Page<Movie> movies = movieRepository.findAll(pageable);
+
         model.addAttribute("movies", movies);
         return "admin/index";
     }

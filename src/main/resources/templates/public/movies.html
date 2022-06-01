@@ -11,8 +11,21 @@
     
     <!-- Content -->
     <div layout:fragment="content">
-        <section class="container mt-5">
-            <h4>Latest releases</h4>
+        <section class="container">
+            <h2>Latest releases</h2>
+
+            <div class="mt-4 text-center">
+                <div class="btn-group flex-wrap" role="group" id="genre-list">
+                    <a th:href="@{/movies}" class="btn btn-outline-dark" id="genre-item">All</a>
+                    <a 
+                        th:each="genre: ${genres}" 
+                        th:href="@{/movies?genre={id} (id = ${genre.id})}" 
+                        th:text="${genre.title}"
+                        class="btn btn-outline-dark"
+                        id="genre-item">
+                    </a>
+                </div>
+            </div>
 
             <div class="row">
                 <div th:each="movie: ${movies}" class="col-md-3 my-4">

@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function()
 {
     movieListHandler();
     navLinksHandler();
+    genresListHandler();
     trailerButtonHandler();
 });
 
@@ -69,6 +70,25 @@ function movieListHandler()
                 imageHeight: 'auto',
                 confirmButtonText: 'Close'
             });
+        }
+    });
+}
+
+
+
+function genresListHandler()
+{
+    const genres = document.querySelectorAll("div#genre-list > a#genre-item");
+    if(!genres) return;
+
+    genres.forEach(genre =>
+    {
+        const href = genre.href;
+
+        if(window.location.href == href)
+        {
+            genre.classList.remove("btn-outline-dark");
+            genre.classList.add("btn-dark");
         }
     });
 }
