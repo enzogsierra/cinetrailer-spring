@@ -1,3 +1,13 @@
+.movie-card
+{
+    transition: transform .3s ease;    
+}
+.movie-card:hover
+{
+    transform: scale(1.05);
+}
+
+
 .movie-thumb
 {
     min-width: 64px;

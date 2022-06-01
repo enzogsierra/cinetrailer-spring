@@ -27,8 +27,11 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div th:each="movie: ${movies}" class="col-md-3 my-4">
+            <div th:if="${movies.isEmpty()}" class="row">
+                <h2 class="mt-5 text-center">No trailers found, try with another term.</h2>
+            </div>
+            <div th:unless="${movies.isEmpty()}" class="row">
+                <div th:each="movie: ${movies}" class="movie-card col-md-3 my-4">
                     <a th:href="@{/movie/{id} (id = ${movie.id})}" class="card shadow-lg text-decoration-none">
                         <img th:src="@{/assets/{filename} (filename = ${movie.coverUrl})}" th:alt="${movie.title} + '\'s cover'" class="card-img-top">
                         
