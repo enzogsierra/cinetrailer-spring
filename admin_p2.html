@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    xmlns="http://www.thymeleaf.org"
+    >
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <title>Cinetrailer</title>
+        <link rel="shortcut icon" href="src/favicon.png" type="image/x-icon">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="src/style.css">
+        
+    </head>
+    
+    <body class="bg-body">
+        <!-- Nav -->
+        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+            <div class="container">
+                <h1 class="mb-0">
+                    <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                        <img 
+                            src="src/favicon.png" 
+                            alt="Logo"
+                            class="d-flex mx-auto"
+                            height="40"
+                        >
+                        <span class="nav-link active text-responsive text-light">Cinetrailer</span>
+                    </a>
+                </h1>
+
+                <button 
+                    type="button"
+                    class="navbar-toggler"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerBtn"
+                    aria-controls="navbarTogglerBtn"
+                    aria-expanded="false"
+                    aria-label="Toggle">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navbarTogglerBtn" class="collapse navbar-collapse justify-content-md-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="movies.html" class="nav-link">Movies</a></li>
+                        <li class="nav-item"><a href="admin.html" class="nav-link">Admin Panel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="my-4">
+        <main class="container">
+            
+
+            <h2>Movies</h2>
+
+            <a href="admin_add.html" class="mt-2 btn btn-primary">Add movie</a>
+        
+            <table class="my-2 table border rounded table-hover" id="movie-list">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Movie</th>
+                        <th class="text-nowrap">Release date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="text-center">
+                            <img src="assets/covers/50ba6c4a-1f4c-4090-a2fe-0225dcda34d3.jpg" alt="Jurassic World: Dominion&#39;s cover" class="movie-thumb img-thumbnail" id="movie-thumb"> 
+                        </td>
+
+                        <td>
+                            <h3>
+                                <a href="movie.html" class="text-decoration-none text-dark">Jurassic World: Dominion</a>
+                            </h3>
+                            <p>Four years after the destruction of Isla Nublar, dinosaurs now live--and hunt--alongside humans all over the world. This fragile balance will reshape the future and determine, once and for all, whether human beings are to remain the apex predators on a ...</p>
+                            <div class="d-flex gap-1">
+                                <h6 class="badge bg-secondary">Adventure</h6>
+                                <h6 class="badge bg-secondary">Fantasy</h6>
+                            </div>
+                        </td>
+
+                        <td>01/01/2022</td>
+
+                        <td>
+                            <div class="d-flex gap-1">
+                                    <a href="admin_edit.html" class="btn btn-warning">Edit</a>
+                                    <a href="admin.html" class="btn btn-danger" id="btn-delete-movie">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <img src="assets/covers/1bd49d6a-d14a-4a20-81b8-a79756214ef9.jpg" alt="Paws of Fury: The Legend of Hank&#39;s cover" class="movie-thumb img-thumbnail" id="movie-thumb"> 
+                        </td>
+
+                        <td>
+                            <h3>
+                                <a href="movie.html" class="text-decoration-none text-dark">Paws of Fury: The Legend of Hank</a>
+                            </h3>
+                            <p>A hard-on-his-luck hound Hank (Michael Cera) finds himself in a town full of cats who need a hero to defend them from a ruthless villain&#39;s (Ricky Gervais) evil plot to wipe their village off the map. With help from a reluctant teacher (Samuel L. Jackson...</p>
+                            <div class="d-flex gap-1">
+                                <h6 class="badge bg-secondary">Animation</h6>
+                                <h6 class="badge bg-secondary">Comedy</h6>
+                                <h6 class="badge bg-secondary">Kids</h6>
+                            </div>
+                        </td>
+
+                        <td>01/01/2022</td>
+
+                        <td>
+                            <div class="d-flex gap-1">
+                                    <a href="admin_edit.html" class="btn btn-warning">Edit</a>
+                                    <a href="admin.html" class="btn btn-danger" id="btn-delete-movie">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <img src="assets/covers/42c42c7b-a755-406f-ab62-6f08631600d6.jpg" alt="PUSS IN BOOTS 2: The Last Wish&#39;s cover" class="movie-thumb img-thumbnail" id="movie-thumb"> 
+                        </td>
+
+                        <td>
+                            <h3>
+                                <a href="movie.html" class="text-decoration-none text-dark">PUSS IN BOOTS 2: The Last Wish</a>
+                            </h3>
+                            <p>Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.</p>
+                            <div class="d-flex gap-1">
+                                <h6 class="badge bg-secondary">Adventure</h6>
+                                <h6 class="badge bg-secondary">Animation</h6>
+                                <h6 class="badge bg-secondary">Comedy</h6>
+                            </div>
+                        </td>
+
+                        <td>01/01/2022</td>
+
+                        <td>
+                            <div class="d-flex gap-1">
+                                    <a href="admin_edit.html" class="btn btn-warning">Edit</a>
+                                    <a href="admin.html" class="btn btn-danger" id="btn-delete-movie">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <img src="assets/covers/1bfaf72c-5496-41c2-8145-d64b5223dab8.jpg" alt="Spiderhead&#39;s cover" class="movie-thumb img-thumbnail" id="movie-thumb"> 
+                        </td>
+
+                        <td>
+                            <h3>
+                                <a href="movie.html" class="text-decoration-none text-dark">Spiderhead</a>
+                            </h3>
+                            <p>This is set in the near future, when convicts are offered the chance to volunteer as medical subjects in hopes of shortening their sentences. When one prisoner finds himself the test patient for a new pharmaceutical capable of generating feelings of lov...</p>
+                            <div class="d-flex gap-1">
+                                <h6 class="badge bg-secondary">Sci-Fi</h6>
+                                <h6 class="badge bg-secondary">Thriller</h6>
+                            </div>
+                        </td>
+
+                        <td>01/01/2022</td>
+
+                        <td>
+                            <div class="d-flex gap-1">
+                                    <a href="admin_edit.html" class="btn btn-warning">Edit</a>
+                                    <a href="admin.html" class="btn btn-danger" id="btn-delete-movie">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <img src="assets/covers/d28c5291-246f-43ba-9a99-f5924110e7a1.jpg" alt="The Bubble&#39;s cover" class="movie-thumb img-thumbnail" id="movie-thumb"> 
+                        </td>
+
+                        <td>
+                            <h3>
+                                <a href="movie.html" class="text-decoration-none text-dark">The Bubble</a>
+                            </h3>
+                            <p>The Bubble is a comedy about a group of actors and actresses stuck inside a pandemic bubble at a hotel attempting to complete a sequel to an action franchise film about flying dinosaurs.
+</p>
+                            <div class="d-flex gap-1">
+                                <h6 class="badge bg-secondary">Comedy</h6>
+                            </div>
+                        </td>
+
+                        <td>01/01/2022</td>
+
+                        <td>
+                            <div class="d-flex gap-1">
+                                    <a href="admin_edit.html" class="btn btn-warning">Edit</a>
+                                    <a href="admin.html" class="btn btn-danger" id="btn-delete-movie">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-5">
+                <div class="col-sm-6">
+                    <div sd:pagination-sumary></div>
+                </div>
+                <div class="col-sm-6">
+                    <nav>
+                        <ul class="pagination">
+                            <li class="page-item"><a href="admin.html" class="page-link" aria-label="Primera"><span
+                                        aria-hidden="true">&laquo;</span></a></li>
+                            <li class="page-item"><a href="admin.html" class="page-link" aria-label="Anterior"><span
+                                        aria-hidden="true">&lsaquo;</span></a></li>
+                            <li class="page-item"><a class="page-link" href="admin.html">1</a></li>
+                            <li class="active page-item"><span class="page-link">2<span class="sr-only visually-hidden">(actual)</span></span>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="admin_p3.html">3</a></li>
+                            <li class="page-item"><a href="admin_p3.html" class="page-link" aria-label="Siguiente"><span
+                                        aria-hidden="true">&rsaquo;</span></a></li>
+                            <li class="page-item"><a href="admin_p3.html" class="page-link" aria-label="Última"><span
+                                        aria-hidden="true">&raquo;</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </main>
+    </div>
+
+        <footer class="bg-dark text-white py-4 mt-5">
+            <p class="mb-0 text-center">Cinetrailer &copy; 2022</p>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="src/app.js" defer></script>
+    </body>
+</html>

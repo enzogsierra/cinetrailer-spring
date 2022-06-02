@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    xmlns="http://www.thymeleaf.org"
+    >
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Cinetrailer</title>
+        <link rel="shortcut icon" href="src/favicon.png" type="image/x-icon">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="src/style.css">
+        
+    </head>
+    
+    <body class="bg-body">
+        <!-- Nav -->
+        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+            <div class="container">
+                <h1 class="mb-0">
+                    <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                        <img 
+                            src="src/favicon.png" 
+                            alt="Logo"
+                            class="d-flex mx-auto"
+                            height="40"
+                        >
+                        <span class="nav-link active text-responsive text-light">Cinetrailer</span>
+                    </a>
+                </h1>
+
+                <button 
+                    type="button"
+                    class="navbar-toggler"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerBtn"
+                    aria-controls="navbarTogglerBtn"
+                    aria-expanded="false"
+                    aria-label="Toggle">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navbarTogglerBtn" class="collapse navbar-collapse justify-content-md-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="movies.html" class="nav-link">Movies</a></li>
+                        <li class="nav-item"><a href="admin.html" class="nav-link">Admin Panel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="my-4">
+        <main class="container my-5">
+            <h2>Add movie</h2>
+
+            <form method="POST" enctype="multipart/form-data">
+                <input type="hidden" id="id" name="id" value="8">
+                
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" id="title" type="text" autocomplete="off" name="title">
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="synopsis">Synopsis</label>
+                    <textarea class="form-control" id="synopsis" rows="4" name="synopsis"></textarea>
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="releaseDate">Release date</label>
+                    <input class="form-control" id="releaseDate" type="date" name="releaseDate">
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="youtubeTrailerUrl">Youtube trailer URL</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="youtubeTrailerUrl">https://www.youtube.com/watch?v=</span>
+                        <input class="form-control" id="youtubeTrailerUrl" type="text" autocomplete="off" name="youtubeTrailerUrl"> 
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Genres</label>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre1" type="checkbox" value="1" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre1">Action</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre12" type="checkbox" value="12" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre12">Adventure</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre13" type="checkbox" value="13" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre13">Animation</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre2" type="checkbox" value="2" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre2">Comedy</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre9" type="checkbox" value="9" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre9">Crime</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre3" type="checkbox" value="3" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre3">Drama</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre4" type="checkbox" value="4" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre4">Fantasy</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre5" type="checkbox" value="5" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre5">Horror</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre14" type="checkbox" value="14" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre14">Kids</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre10" type="checkbox" value="10" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre10">Musical</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre6" type="checkbox" value="6" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre6">Mystery</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre7" type="checkbox" value="7" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre7">Romance</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre11" type="checkbox" value="11" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre11">Sci-Fi</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" id="genre8" type="checkbox" value="8" name="genres"><input type="hidden" name="_genres" value="on"/>
+                        <label class="form-check-label" for="genre8">Thriller</label>
+                    </div>
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="cover">Cover</label>
+                    <input class="form-control" id="cover" type="file" name="cover">
+                </div>
+
+                <div>
+                    <a href="admin.html" class="btn btn-primary">Save</a>
+                    <a href="admin.html" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </main>
+    </div>
+
+        <footer class="bg-dark text-white py-4 mt-5">
+            <p class="mb-0 text-center">Cinetrailer &copy; 2022</p>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="src/app.js" defer></script>
+    </body>
+</html>

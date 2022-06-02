@@ -1,0 +1,65 @@
+.movie-card
+{
+    transition: transform .3s ease;    
+}
+.movie-card:hover
+{
+    transform: scale(1.05);
+}
+
+.movie-card .movie-info
+{
+    display: none;
+    transition: display .3s ease;
+}
+.movie-card:hover .movie-info
+{
+    display: block;
+}
+
+
+.movie-thumb
+{
+    min-width: 64px;
+    max-width: 96px;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+.movie-thumb:hover
+{
+    transform: scale(1.05);
+}
+
+
+.embed-youtube-trailer
+{
+    height: 0;
+    margin: auto;
+    z-index: 1;
+    position: relative;
+    padding-top: 0px;
+    padding-bottom: 56.25%;
+    display: block;
+    overflow: hidden;
+}
+.embed-youtube-trailer iframe
+{
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: absolute;
+}
+
+/* Swal style handling */
+body.trailer-swal .swal2-popup
+{
+    width: 100% !important;
+    height: 100% !important;
+
+    max-width: 78vw !important;
+    max-height: 95vh !important;
+    min-width: 430px;
+}

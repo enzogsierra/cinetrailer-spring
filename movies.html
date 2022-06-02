@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html 
+    lang="en"
+    xmlns="http://www.thymeleaf.org"
+    >
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <title>Cinetrailer</title>
+        <link rel="shortcut icon" href="src/favicon.png" type="image/x-icon">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="src/style.css">
+        
+    </head>
+    
+    <body class="bg-body">
+        <!-- Nav -->
+        <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
+            <div class="container">
+                <h1 class="mb-0">
+                    <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                        <img 
+                            src="src/favicon.png" 
+                            alt="Logo"
+                            class="d-flex mx-auto"
+                            height="40"
+                        >
+                        <span class="nav-link active text-responsive text-light">Cinetrailer</span>
+                    </a>
+                </h1>
+
+                <button 
+                    type="button"
+                    class="navbar-toggler"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerBtn"
+                    aria-controls="navbarTogglerBtn"
+                    aria-expanded="false"
+                    aria-label="Toggle">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div id="navbarTogglerBtn" class="collapse navbar-collapse justify-content-md-end">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="movies.html" class="nav-link">Movies</a></li>
+                        <li class="nav-item"><a href="admin.html" class="nav-link">Admin Panel</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="my-4">
+        <section class="container">
+            <h2>Latest releases</h2>
+
+            <div class="mt-4 text-center">
+                <div class="btn-group flex-wrap" role="group" id="genre-list">
+                    <a href="movies.html" class="btn btn-dark" id="genre-item">All</a>
+                    <a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Action</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Comedy</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Drama</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Fantasy</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Horror</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Mystery</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Romance</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Thriller</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Crime</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Musical</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Sci-Fi</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Adventure</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Animation</a><a 
+                        href="movies.html" 
+                        class="btn btn-outline-dark"
+                        id="genre-item">Kids</a>
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.movie" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/348a6cc7-8ac6-49cf-9eea-6c0aa7b126a5.jpg" alt="The Gray Man&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">The Gray Man</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Action</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Thriller</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/e025d48d-d26c-4d42-8b23-9dfcdc48f7ab.jpg" alt=" Top Gun: Maverick&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center"> Top Gun: Maverick</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Action</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/143452dc-77f2-4816-89de-bd140c603e27.jpg" alt="The Northman&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">The Northman</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Action</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Adventure</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Drama</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/ec0696fd-8b27-4312-9cf7-43adbb1a6e84.jpg" alt="Elvis&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">Elvis</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Drama</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Musical</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/02766c75-386d-4c00-a626-a5c9490659fd.jpg" alt="Three Thousand Years of Longing&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">Three Thousand Years of Longing</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Comedy</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Drama</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Fantasy</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/1bfaf72c-5496-41c2-8145-d64b5223dab8.jpg" alt="Spiderhead&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">Spiderhead</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Sci-Fi</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Thriller</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/a9ccdc6e-c0e3-434f-981a-16bfaf982060.jpg" alt="Avatar: The Way of Water&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">Avatar: The Way of Water</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Sci-Fi</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/50ba6c4a-1f4c-4090-a2fe-0225dcda34d3.jpg" alt="Jurassic World: Dominion&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">Jurassic World: Dominion</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Adventure</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Fantasy</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/1bd49d6a-d14a-4a20-81b8-a79756214ef9.jpg" alt="Paws of Fury: The Legend of Hank&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">Paws of Fury: The Legend of Hank</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Animation</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Comedy</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Kids</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/42c42c7b-a755-406f-ab62-6f08631600d6.jpg" alt="PUSS IN BOOTS 2: The Last Wish&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">PUSS IN BOOTS 2: The Last Wish</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Adventure</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Animation</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Comedy</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/d28c5291-246f-43ba-9a99-f5924110e7a1.jpg" alt="The Bubble&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">The Bubble</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2022</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Comedy</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/4a8b9651-81f8-47a6-badb-3eca08058ddf.jpg" alt="John Wick: Chapter 2&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">John Wick: Chapter 2</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2017</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Action</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Thriller</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="movie-card col-md-3 my-4">
+                    <a href="movie.html" class="card shadow-lg text-decoration-none">
+                        <img src="assets/covers/f8441263-f535-45d4-ae6c-ee33b68cfe7b.jpg" alt="Deadpool&#39;s cover" class="card-img-top">
+                        
+                        <div class="card-body">
+                            <h5 class="text-dark text-center">Deadpool</h5>
+
+                            <div class="movie-info">
+                                <p class="mb-1 text-center text-muted">2016</p>
+
+                                <div class="d-flex justify-content-center flex-wrap gap-1">
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Action</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Comedy</h6>
+                                    <h6 class="m-0 badge bg-light rounded border text-dark">Fantasy</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <footer class="bg-dark text-white py-4 mt-5">
+            <p class="mb-0 text-center">Cinetrailer &copy; 2022</p>
+        </footer>
+
+        <!-- Scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="src/app.js" defer></script>
+    </body>
+</html>
